@@ -1,5 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using BookApi.Data;
+using Microsoft.AspNetCore.Authentication.BearerToken;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +19,28 @@ builder.Services.AddControllers(); // Register the AppDbContext with dependency 
 
 builder.Services.AddSwaggerGen();
 
+//jwt token authentication
+builder.Services.AddAuthentication(option =>
+{
+    option.DefaultAuthenticateScheme = "JwtBearer";
+    option.DefaultChallengeScheme = "JwtBearer";
+})
+.AddJwtBearer("JwtBearer", jwtOptions =>
+{
+    jwtOptions.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Secret"]!)),
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JwtSettings:Audience"],
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.FromMinutes(1)
+    };
+});
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

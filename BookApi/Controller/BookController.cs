@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using BookApi.Models;
 using BookApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookApi.Controllers
 {
+    [Authorize] 
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase
@@ -80,9 +82,9 @@ namespace BookApi.Controllers
                 return NotFound();
             }
 
-            _context.Books.Remove(book); 
+            _context.Books.Remove(book);
             await _context.SaveChangesAsync();
-            return NoContent(); 
+            return NoContent();
         }
     }
     
