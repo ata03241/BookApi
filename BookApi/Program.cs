@@ -22,10 +22,10 @@ builder.Services.AddSwaggerGen();
 //jwt token authentication
 builder.Services.AddAuthentication(option =>
 {
-    option.DefaultAuthenticateScheme = "JwtBearer";
-    option.DefaultChallengeScheme = "JwtBearer";
+    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer("JwtBearer", jwtOptions =>
+.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtOptions =>
 {
     jwtOptions.TokenValidationParameters = new TokenValidationParameters
     {
@@ -50,6 +50,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//middleware
+app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers(); // Map the controllers to the app
 // app.UseHttpsRedirection();
