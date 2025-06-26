@@ -167,3 +167,9 @@ C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BCrypt.Net-Next
 C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BookApp-Frontend\angular.json
+C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BookApp-Frontend\package-lock.json
+C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BookApp-Frontend\package.json
+C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BookApp-Frontend\tsconfig.app.json
+C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BookApp-Frontend\tsconfig.json
+C:\Users\pakhr\OneDrive\Desktop\BookApi\BookApi\bin\Debug\net8.0\BookApp-Frontend\tsconfig.spec.json

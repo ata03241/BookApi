@@ -1,11 +1,36 @@
 import { Component } from '@angular/core';
-
+import { Api } from '../../services/api';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './register.html',
-  styleUrl: './register.css'
+  styleUrl: './register.css',
+  standalone: true,
+
 })
-export class Register {
+export class RegisterComponent {
+  model: any = {};
+
+  constructor(private api: Api, private router: Router) { }
+
+  register() {
+    this.api.register(this.model).subscribe(
+      () => {
+        alert('Registration successful! You can now log in.');
+        this.router.navigate(['/login']);
+      },
+      (err) => {
+        if (err.status === 409) {
+          alert('User already exists. Please choose a different email or username.');
+        } else {
+          alert('An error occurred during registration.');
+          console.error(err);
+        }
+      }
+    );
+  }
 
 }

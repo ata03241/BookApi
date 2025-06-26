@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookApi.Controller
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("auth")]
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration; // Inject IConfiguration to access app settings
@@ -33,7 +33,7 @@ namespace BookApi.Controller
 
             if (await _context.Users.AnyAsync(u => u.Username == registerDto.Username))
             {
-                return Conflict("Username already exists.");
+                return Conflict(new { message = "User already exists." });
             }
 
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password);
@@ -47,7 +47,7 @@ namespace BookApi.Controller
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
 
-            return Ok("User registered successfully.");
+            return Ok(new { message = "User registered successfully." });
         }
 
         [HttpPost("login")]

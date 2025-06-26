@@ -42,6 +42,17 @@ builder.Services.AddAuthentication(option =>
 
 builder.Services.AddAuthorization();
 
+//Cors policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,6 +62,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAll"); // Use the CORS policy
 //middleware
 app.UseAuthentication();
 app.UseAuthorization();
