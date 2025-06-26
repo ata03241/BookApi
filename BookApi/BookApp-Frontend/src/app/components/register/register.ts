@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Api } from '../../services/api';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './register.html',
   styleUrl: './register.css',
   standalone: true,
@@ -17,8 +17,7 @@ export class RegisterComponent {
   constructor(private api: Api, private router: Router) { }
 
   register() {
-    this.api.register(this.model).subscribe(
-      () => {
+    this.api.register(this.model).subscribe(() => {
         alert('Registration successful! You can now log in.');
         this.router.navigate(['/login']);
       },

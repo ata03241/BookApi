@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="registration-form">
+  <form (submit)="login()" class="needs-validation" novalidate>
+    <div class="form-icon">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm0 13A6 6 0 1 1 8 2a6 6 0 0 1 0 11Z" />
+          <path d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+        </svg>
+      </span>
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="model.username" name="username" class="form-control item" id="username"
+        placeholder="Username" required>
+    </div>
+    <div class="form-group">
+      <input type="password" [(ngModel)]="model.password" name="passowrd" class="form-control item" id="password"
+        placeholder="Password" required>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-block create-account">Login</button>
+    </div>
+    <div class="form-group">
+        <p class="text-center account">Don't have an account? <a routerLink="/register" style="color: blue;">Register</a></p>
+    </div>
+  </form>
+</div>
