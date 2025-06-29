@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace BookApi.Controllers
 {
     [Authorize] 
-    [Route("api/[controller]")]
+    [Route("books")]
     [ApiController]
     public class BookController : ControllerBase
     {

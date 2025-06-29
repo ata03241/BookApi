@@ -6,7 +6,7 @@
 
 .registration-form form{
     background-color: #fff;
-    max-width: 270px;
+    max-width: 370px;
     margin: auto;
     padding: 50px 70px;
     border-top-left-radius: 30px;
@@ -49,6 +49,13 @@
     margin-top: 30px;
     cursor: pointer;
     font-size: 1.2rem;
+}
+
+.invalid-feedback{
+    font-size: 0.9rem;
+    color: #dc3545;
+    padding: 1px 10px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 576px) {

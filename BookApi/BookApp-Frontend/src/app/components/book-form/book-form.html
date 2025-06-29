@@ -1,1 +1,23 @@
-<p>book-form works!</p>
+<div class="container mt-5">
+  <h2>{{ isEdit ? 'Edit book' : 'New book' }}</h2>
+  <form (submit)="save()">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input [(ngModel)]="model.title" name="title" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Author</label>
+      <input [(ngModel)]="model.author" name="author" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">publishedDate</label>
+      <input type="date" [(ngModel)]="model.publishedDate" name="publishedDate" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      {{ isEdit ? 'Save changes' : 'Create Book' }}
+    </button>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 <div class="registration-form">
   <form (submit)="register()" class="needs-validation" novalidate>
-    <div class="form-icon">
+    <div class="form-icon text-center mb-4">
       <span>
         <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm0 13A6 6 0 1 1 8 2a6 6 0 0 1 0 11Z" />
@@ -8,23 +8,46 @@
         </svg>
       </span>
     </div>
-    <div class="form-group">
-      <input type="text" [(ngModel)]="model.username" name="username" class="form-control item" id="username"
-        placeholder="Username" required>
+
+
+    <div class="form-group mb-3">
+      <input type="text" [(ngModel)]="model.username" name="username" class="form-control item"  id="username" placeholder="Username" required #usernameInput="ngModel"
+      >
+      <div *ngIf="usernameInput.invalid && usernameInput.touched" class="invalid-feedback d-block">
+        Please provide a valid username.
+      </div>
     </div>
-    <div class="form-group">
-      <input type="password" [(ngModel)]="model.password" name="passowrd" class="form-control item" id="password"
-        placeholder="Password" required>
+
+
+    <div class="form-group mb-3">
+      <input type="password" [(ngModel)]="model.password" name="password" class="form-control item" id="password" placeholder="Password" required #passwordInput="ngModel"
+      >
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="invalid-feedback d-block">
+        Please provide a password.
+      </div>
     </div>
-    <div class="form-group">
-      <input type="text" [(ngModel)]="model.email" name="email" class="form-control item" id="email" placeholder="Email"
-        required>
+
+
+    <div class="form-group mb-3">
+      <input type="email" [(ngModel)]="model.email" name="email" class="form-control item"  id="email" placeholder="Email" required email #emailInput="ngModel"
+      >
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="invalid-feedback d-block">
+        Please provide a valid email.
+      </div>
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-block create-account">Create Account</button>
+
+
+    <div class="form-group mb-3">
+      <button type="submit" class="btn btn-primary w-100 create-account" [disabled]="!usernameInput.valid || !passwordInput.valid || !emailInput.valid">
+        Create Account
+      </button>
     </div>
-    <div class="form-group">
-      <p class="text-center account">Already have an account? <a routerLink="/login" style="color: blue;">Login</a></p>
+
+
+    <div class="form-group text-center">
+      <p>Already have an account? 
+        <a routerLink="/login" style="color: blue;">Login</a>
+      </p>
     </div>
   </form>
 </div>
