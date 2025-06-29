@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: 'books', component: BookListComponent},
     {path: 'books/add', component: BookFormComponent},
     {path: 'books/edit/:id', component: BookFormComponent},
-    {path: 'my-quotes', component: MyQuotesComponent}
+    {path: 'myquotes', component: MyQuotesComponent}
 ];
 
 

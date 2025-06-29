@@ -1,1 +1,10 @@
-<p>my-quotes works!</p>
+<div class="wrapper" *ngIf="quotes && quotes.length > 0">
+    <blockquote class="stacked" *ngFor="let quote of quotes">
+      <p>
+        {{ quote.text }}
+      </p>
+      <footer class="blockquote-footer mt-2">
+              {{ quote.author }}
+     </footer>
+    </blockquote>
+</div>
