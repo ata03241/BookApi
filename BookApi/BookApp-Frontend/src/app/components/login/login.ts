@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Api } from '../../services/api';
+
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,14 @@ export class LoginComponent {
 
   constructor(private api: Api, private router: Router) { }
 
+    ngOnInit(): void {
+        // Check if the user is already logged in
+        const token = localStorage.getItem('token');
+        if (token) {
+            this.router.navigate(['/books']);
+        }
+    }
+
     login() {
     this.api.login(this.model).subscribe(
       (response: any) => {
@@ -25,6 +34,7 @@ export class LoginComponent {
         }
         localStorage.setItem('token', response.token);
         this.router.navigate(['/books']);
+         window.location.reload(); 
       },
       (error) => {
         alert('wrong username or password');
