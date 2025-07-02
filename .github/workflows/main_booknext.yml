@@ -20,28 +20,26 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Navigate to Project Directory
-        run: |
-          cd BookApi  # Adjust path if needed
-          pwd
-
       - name: Restore Dependencies
         run: dotnet restore
+        working-directory: ./BookApi
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
+        working-directory: ./BookApi
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o "../publish"
+        run: dotnet publish -c Release -o ../../publish
+        working-directory: ./BookApi
 
       - name: List files after publish
-        run: ls -R ./publish
+        run: ls -R ../../publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./publish
+          path: ../../publish
 
   deploy:
     runs-on: windows-latest
