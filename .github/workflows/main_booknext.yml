@@ -1,0 +1,73 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - BookNext
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Restore dependencies
+        run: dotnet restore BookApi/BookApi.csproj
+
+      - name: Build with dotnet
+        run: dotnet build BookApi/BookApi.csproj --configuration Release
+
+      - name: Publish app
+        run: dotnet publish BookApi/BookApi.csproj -c Release -o BookApi/publish
+
+      - name: List files after publish
+        run: ls -R BookApi/publish
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: BookApi/publish
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+
+      - name: List files after artifact download
+        run: ls -R
+
+      - name: Print working directory
+        run: pwd
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1C6625C0C49141619938E85196ABF566 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_5778BF5C16EB45B1B5CA401996541C9F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0A595F3627A6461EB25AE5B2EAB8D8B9 }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'BookNext'
+          slot-name: 'Production'
+          package: ./  # Den mapp där artifact laddas ner ligger, dvs root i detta steg
