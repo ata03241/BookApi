@@ -27,13 +27,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish -c Release -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./publish
 
   deploy:
     runs-on: windows-latest
@@ -51,9 +51,6 @@ jobs:
       - name: List current directory after artifact download
         run: ls -R
 
-      - name: Print working directory
-        run: pwd
-
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -62,9 +59,8 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0A595F3627A6461EB25AE5B2EAB8D8B9 }}
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'BookNext'
           slot-name: 'Production'
-          package: ./myapp
+          package: ./publish
