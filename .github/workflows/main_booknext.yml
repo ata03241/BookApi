@@ -20,26 +20,23 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      - name: Restore Dependencies
-        run: dotnet restore
-        working-directory: ./BookApi
+      - name: Restore dependencies
+        run: dotnet restore BookApi/BookApi.csproj
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
-        working-directory: ./BookApi
+        run: dotnet build BookApi/BookApi.csproj --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ../../publish
-        working-directory: ./BookApi
+      - name: Publish app
+        run: dotnet publish BookApi/BookApi.csproj -c Release -o BookApi/publish
 
       - name: List files after publish
-        run: ls -R ../../publish
+        run: ls -R BookApi/publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ../../publish
+          path: BookApi/publish
 
   deploy:
     runs-on: windows-latest
@@ -73,4 +70,4 @@ jobs:
         with:
           app-name: 'BookNext'
           slot-name: 'Production'
-          package: ./publish
+          package: ./  # Den mapp där artifact laddas ner ligger, dvs root i detta steg
