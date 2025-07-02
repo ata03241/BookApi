@@ -67,9 +67,14 @@ app.UseCors("AllowAll"); // Use the CORS policy
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseDefaultFiles(); // Serve default files like index.html
+app.UseStaticFiles(); // Serve static files from wwwroot
+
 
 app.MapControllers(); // Map the controllers to the app
 // app.UseHttpsRedirection();
+
+app.MapFallbackToFile("index.html"); 
 
 var summaries = new[]
 {
