@@ -1,29 +1,25 @@
 using Microsoft.EntityFrameworkCore;
 using BookApi.Data;
-using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddControllers(); // Register the AppDbContext with dependency injection
+builder.Services.AddControllers();
 
-builder.Services.AddSwaggerGen();
-
-//jwt token authentication
-builder.Services.AddAuthentication(option =>
+// JWT Authentication
+builder.Services.AddAuthentication(options =>
 {
-    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtOptions =>
 {
@@ -42,7 +38,7 @@ builder.Services.AddAuthentication(option =>
 
 builder.Services.AddAuthorization();
 
-//Cors policy
+// CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -55,27 +51,24 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// Always enable Swagger (remove environment check for testing)
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseCors("AllowAll"); // Use the CORS policy
-//middleware
+app.UseCors("AllowAll");
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseDefaultFiles(); // Serve default files like index.html
-app.UseStaticFiles(); // Serve static files from wwwroot
+app.UseDefaultFiles();   // Serve default files like index.html
+app.UseStaticFiles();    // Serve static files from wwwroot
 
+app.MapControllers();
 
-app.MapControllers(); // Map the controllers to the app
-// app.UseHttpsRedirection();
+// Fallback to index.html for SPA routing
+app.MapFallbackToFile("index.html");
 
-app.MapFallbackToFile("index.html"); 
-
+// Example API endpoint (can remove or keep)
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -83,7 +76,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
