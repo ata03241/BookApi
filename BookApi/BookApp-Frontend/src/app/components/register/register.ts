@@ -13,21 +13,28 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterComponent {
   model: any = {};
+  message: string = '';
+  messageType: 'success' | 'error' | '' = '';
+ 
 
   constructor(private api: Api, private router: Router) { }
 
   register() {
     this.api.register(this.model).subscribe(() => {
-        alert('Registration successful! You can now log in.');
+        this.message = 'Registration successful! You can now log in.';
+        this.messageType = 'success';
         this.router.navigate(['/login']);
+        
       },
       (err) => {
         if (err.status === 409) {
-          alert('User already exists. Please choose a different email or username.');
-        } else {
-          alert('An error occurred during registration.');
-          console.error(err);
-        }
+        this.message = 'User already exists.';
+        this.messageType = 'error';
+      } else {
+        this.message = 'An error occurred during registration.';
+        this.messageType = 'error';
+        console.error(err);
+      }
       }
     );
   }

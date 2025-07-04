@@ -13,8 +13,8 @@
       "PackagePath": "staticwebassets\\browser\\index.html"
     },
     {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\main-25E36NTJ.js",
-      "PackagePath": "staticwebassets\\browser\\main-25E36NTJ.js"
+      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\main-EIGO54K2.js",
+      "PackagePath": "staticwebassets\\browser\\main-EIGO54K2.js"
     },
     {
       "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\polyfills-B6TNHZQ6.js",
@@ -29,32 +29,8 @@
       "PackagePath": "staticwebassets\\browser\\styles-ZKR7GMNL.css"
     },
     {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\index.html",
-      "PackagePath": "staticwebassets\\index.html"
-    },
-    {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\main-3KXEZO4Z.js",
-      "PackagePath": "staticwebassets\\main-3KXEZO4Z.js"
-    },
-    {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\polyfills-B6TNHZQ6.js",
-      "PackagePath": "staticwebassets\\polyfills-B6TNHZQ6.js"
-    },
-    {
       "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\prerendered-routes.json",
       "PackagePath": "staticwebassets\\prerendered-routes.json"
-    },
-    {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\scripts-OM55AYDI.js",
-      "PackagePath": "staticwebassets\\scripts-OM55AYDI.js"
-    },
-    {
-      "Id": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\styles-ZKR7GMNL.css",
-      "PackagePath": "staticwebassets\\styles-ZKR7GMNL.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookApi.Microsoft.AspNetCore.StaticWebAssets.props",

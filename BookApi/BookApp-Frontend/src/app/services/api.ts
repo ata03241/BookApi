@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../enviroments/enviroments';
+import { environment } from '../../environments/environments';
 @Injectable({
   providedIn: 'root'
 })
@@ -54,6 +54,11 @@ export class Api {
     const token = localStorage.getItem('token');
     const headers = { Authorization: `Bearer ${token}` };
     return this.http.get<any>(`${this.apiUrl}/books/${id}`, { headers });
+  }
+
+  //get quotes
+  getQuotes(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/Quotes`);
   }
 
 }

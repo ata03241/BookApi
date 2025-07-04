@@ -14,6 +14,8 @@ import { Api } from '../../services/api';
 })
 export class LoginComponent {
   model: any = {};
+  message: string = '';
+  messageType: 'success' | 'error' | '' = '';
 
   constructor(private api: Api, private router: Router) { }
 
@@ -29,7 +31,8 @@ export class LoginComponent {
     this.api.login(this.model).subscribe(
       (response: any) => {
         if(!response || !response.token) {
-          alert("Login failed. Please try again.");
+          this.message = 'Login failed. Please try again.';
+          this.messageType = 'error';
           return;
         }
         localStorage.setItem('token', response.token);
@@ -37,7 +40,8 @@ export class LoginComponent {
          window.location.reload(); 
       },
       (error) => {
-        alert('wrong username or password');
+        this.message = 'Wrong username or password.';
+        this.messageType = 'error';
         console.error(error);
       }
     );

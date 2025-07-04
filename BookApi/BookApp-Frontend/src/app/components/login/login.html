@@ -8,19 +8,25 @@
         </svg>
       </span>
     </div>
-    <div class="form-group">
-      <input type="text" [(ngModel)]="model.username" name="username" class="form-control item" id="username" #usernameInput="ngModel"
-        placeholder="Username" required>
+    <div *ngIf="message"
+      [ngClass]="{'text-success': messageType === 'success', 'text-danger': messageType === 'error'}">
+      {{ message }}
     </div>
     <div class="form-group">
-      <input type="password" [(ngModel)]="model.password" name="passowrd" class="form-control item" id="password" #passwordInput="ngModel"
-        placeholder="Password" required>
+      <input type="text" [(ngModel)]="model.username" name="username" class="form-control item" id="username"
+        #usernameInput="ngModel" placeholder="Username" required>
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-block create-account" [disabled]="!usernameInput.valid || !passwordInput.valid ">Login</button>
+      <input type="password" [(ngModel)]="model.password" name="passowrd" class="form-control item" id="password"
+        #passwordInput="ngModel" placeholder="Password" required>
     </div>
     <div class="form-group">
-        <p class="text-center account">Don't have an account? <a routerLink="/register" style="color: blue;">Register</a></p>
+      <button type="submit" class="btn btn-block create-account"
+        [disabled]="!usernameInput.valid || !passwordInput.valid ">Login</button>
+    </div>
+    <div class="form-group">
+      <p class="text-center account">Don't have an account? <a routerLink="/register" style="color: blue;">Register</a>
+      </p>
     </div>
   </form>
 </div>
