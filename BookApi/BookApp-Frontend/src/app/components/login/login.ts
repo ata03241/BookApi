@@ -23,7 +23,7 @@ export class LoginComponent {
         // Check if the user is already logged in
         const token = localStorage.getItem('token');
         if (token) {
-            this.router.navigate(['/books']);
+            this.router.navigate(['/home']);
         }
     }
 
@@ -36,7 +36,7 @@ export class LoginComponent {
           return;
         }
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/books']);
+        this.router.navigate(['/home']);
          window.location.reload(); 
       },
       (error) => {
