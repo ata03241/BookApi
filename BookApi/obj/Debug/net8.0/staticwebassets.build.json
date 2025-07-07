@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "98I1vsUQiigcNUjNN/05XlWplr/nmExk2ofG1qmmTbo=",
+  "Hash": "xs/hyrv9TdjwMbKU4dP1oSZol596RwsxSyDuSeIfBlo=",
   "Source": "BookApi",
   "BasePath": "_content/BookApi",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\3rdpartylicenses.txt",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\favicon.ico",
       "SourceId": "BookApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
       "BasePath": "_content/BookApi",
-      "RelativePath": "3rdpartylicenses.txt",
+      "RelativePath": "favicon.ico",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,15 +33,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\3rdpartylicenses.txt"
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\favicon.ico",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\index.html",
       "SourceId": "BookApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
       "BasePath": "_content/BookApi",
-      "RelativePath": "browser/favicon.ico",
+      "RelativePath": "index.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,15 +52,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\favicon.ico"
+      "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\index.html",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\main-4N4G3OGT.js",
       "SourceId": "BookApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
       "BasePath": "_content/BookApi",
-      "RelativePath": "browser/index.html",
+      "RelativePath": "main-4N4G3OGT.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -71,15 +71,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\index.html"
+      "OriginalItemSpec": "wwwroot\\main-4N4G3OGT.js"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\main-EIGO54K2.js",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\polyfills-B6TNHZQ6.js",
       "SourceId": "BookApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
       "BasePath": "_content/BookApi",
-      "RelativePath": "browser/main-EIGO54K2.js",
+      "RelativePath": "polyfills-B6TNHZQ6.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -90,15 +90,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\main-EIGO54K2.js"
+      "OriginalItemSpec": "wwwroot\\polyfills-B6TNHZQ6.js"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\polyfills-B6TNHZQ6.js",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\scripts-OM55AYDI.js",
       "SourceId": "BookApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
       "BasePath": "_content/BookApi",
-      "RelativePath": "browser/polyfills-B6TNHZQ6.js",
+      "RelativePath": "scripts-OM55AYDI.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,15 +109,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\polyfills-B6TNHZQ6.js"
+      "OriginalItemSpec": "wwwroot\\scripts-OM55AYDI.js"
     },
     {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\scripts-OM55AYDI.js",
+      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\styles-ZKR7GMNL.css",
       "SourceId": "BookApi",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
       "BasePath": "_content/BookApi",
-      "RelativePath": "browser/scripts-OM55AYDI.js",
+      "RelativePath": "styles-ZKR7GMNL.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,45 +128,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\scripts-OM55AYDI.js"
-    },
-    {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\browser\\styles-ZKR7GMNL.css",
-      "SourceId": "BookApi",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
-      "BasePath": "_content/BookApi",
-      "RelativePath": "browser/styles-ZKR7GMNL.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\browser\\styles-ZKR7GMNL.css"
-    },
-    {
-      "Identity": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\prerendered-routes.json",
-      "SourceId": "BookApi",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pakhr\\OneDrive\\Desktop\\BookApi\\BookApi\\wwwroot\\",
-      "BasePath": "_content/BookApi",
-      "RelativePath": "prerendered-routes.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\prerendered-routes.json"
+      "OriginalItemSpec": "wwwroot\\styles-ZKR7GMNL.css"
     }
   ]
 }
