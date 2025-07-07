@@ -24,7 +24,7 @@
 
 
     <div class="form-group mb-3">
-      <input type="password" [(ngModel)]="model.password" name="password" class="form-control item" id="password"
+      <input type="password" autocomplete="new-password" [(ngModel)]="model.password" name="password" class="form-control item" id="password"
         placeholder="Password" required #passwordInput="ngModel">
       <div *ngIf="passwordInput.invalid && passwordInput.touched" class="invalid-feedback d-block">
         Please provide a password.

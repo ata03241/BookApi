@@ -26,10 +26,8 @@ namespace BookApi.Controller
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
-            if (registerDto == null || string.IsNullOrEmpty(registerDto.Username) || string.IsNullOrEmpty(registerDto.Password))
-            {
-                return BadRequest("Invalid user data.");
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             if (await _context.Users.AnyAsync(u => u.Username == registerDto.Username))
             {
@@ -53,20 +51,12 @@ namespace BookApi.Controller
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
-            if (loginDto == null || string.IsNullOrEmpty(loginDto.Username) || string.IsNullOrEmpty(loginDto.Password))
-            {
-                return BadRequest("Invalid login data.");
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginDto.Username);
 
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
-            {
-                return Unauthorized("Invalid username or password.");
-            }
-
-            bool validpassword = BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash);
-            if (!validpassword)
             {
                 return Unauthorized("Invalid username or password.");
             }
